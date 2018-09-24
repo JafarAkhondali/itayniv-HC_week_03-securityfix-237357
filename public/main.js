@@ -103,13 +103,13 @@ let gameCounter;
 document.querySelector('#my-button').onclick = () => {
   gameTime = 60;
   gameOn = true;
-  document.getElementById('timer').innerHTML = gameTime;
+  document.getElementById('timer').innerHTML = gameTime +" seconds left";
 
   gameCounter = setInterval(function() {
     if (gameTime > 0){
       gameTime = gameTime - 1;
       // console.log("click", gameTime);
-       document.getElementById('timer').innerHTML = gameTime;
+      document.getElementById('timer').innerHTML = gameTime +" seconds left";
     }
 
     if (gameTime == 0){
