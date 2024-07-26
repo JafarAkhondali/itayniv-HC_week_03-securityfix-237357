@@ -39,6 +39,11 @@ function handleRequest(request, response) {
 	var urlObject = urlParser.parse(request.url, true);
 	var pathname = decodeURIComponent(urlObject.pathname);
 
+    if (path.normalize(decodeURI(pathname)) !== decodeURI(pathname)) {
+        response.statusCode = 403;
+        response.end();
+        return;
+    }
 	console.log('[' + (new Date()).toUTCString() + '] ' + '"' + request.method + ' ' + pathname + '"');
 
 	var filePath = path.join(currentDir, pathname);
